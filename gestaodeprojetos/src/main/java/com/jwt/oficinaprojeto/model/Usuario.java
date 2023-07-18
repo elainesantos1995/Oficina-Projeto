@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -27,6 +28,9 @@ public class Usuario implements UserDetails {
 
     @Column(nullable = false)
     private String senha;
+
+    @OneToOne
+    private Perfil perfil;
 
     public Usuario() {
     }
@@ -78,7 +82,6 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
         return null;
     }
 
